@@ -2,26 +2,10 @@
 
 PWA pencatat keuangan pribadi (Android/Chrome), offline, tanpa akun.
 
-## Jalankan lokal
-
-```bash
-npm start
-```
-
-Buka http://localhost:5173. Tidak ada dependensi; cukup Node.js.
-
-```bash
-npm test
-```
-
-Menguji logika inti di `logic.js` (saldo, statistik, anggaran, ekspresi Clawd, streak, transaksi berulang, impor, CSV).
-
 ## Pasang di HP
 
-1. Publikasikan lewat GitHub Pages (Settings → Pages → Deploy from a branch → `main` / root). HTTPS wajib.
-2. Buka link di Chrome Android → menu ⋮ → **Instal aplikasi**.
-
-**Setiap kali mengubah file**, naikkan `VERSI` di `sw.js` (mis. `capit-duit-v2`). Tanpa itu HP tetap memakai versi lama dari cache.
+buka https://ayanodsu.github.io/Capit-duit/ 
+untuk install klik ikonn titik tiga crome lalu pilih install
 
 ## Berkas
 
