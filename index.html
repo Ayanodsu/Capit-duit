@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#D97757">
+<meta name="description" content="Pencatat keuangan pribadi yang ceria, cepat, dan jalan offline.">
+<title>Capit Duit</title>
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="icons/icon-192.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,800&family=Pixelify+Sans:wght@500;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap">
+<link rel="stylesheet" href="styles.css">
+<script type="module" src="app.js"></script>
+</head>
+<body>
+
+<!-- Sprite Clawd: grid piksel 24x21, y mulai -4 untuk capit terangkat -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <g id="c-body" fill="#D97757">
+      <rect x="2" y="0" width="20" height="12"/>
+      <rect x="4" y="12" width="2" height="5"/><rect x="8" y="12" width="2" height="5"/>
+      <rect x="14" y="12" width="2" height="5"/><rect x="18" y="12" width="2" height="5"/>
+    </g>
+    <g id="c-arms" fill="#D97757"><rect x="0" y="4" width="2" height="4"/><rect x="22" y="4" width="2" height="4"/></g>
+    <g id="c-up" fill="#D97757"><rect x="0" y="-3" width="2" height="5"/><rect x="22" y="-3" width="2" height="5"/></g>
+    <g id="c-blush" fill="#F4A58C"><rect x="3" y="7" width="3" height="1"/><rect x="18" y="7" width="3" height="1"/></g>
+    <g id="c-drop" fill="#6EC6FF"><rect x="20" y="-2" width="1" height="1"/><rect x="19" y="-1" width="3" height="3"/></g>
+  </defs>
+  <symbol id="clawd" viewBox="0 -4 24 21" shape-rendering="crispEdges"><use href="#c-body"/><use href="#c-arms"/>
+    <g fill="#2A1A12" class="blink"><rect x="6" y="3" width="2" height="4"/><rect x="16" y="3" width="2" height="4"/></g></symbol>
+  <symbol id="clawd-happy" viewBox="0 -4 24 21" shape-rendering="crispEdges"><use href="#c-body"/><use href="#c-arms"/><use href="#c-blush"/>
+    <g fill="#2A1A12" class="blink"><rect x="6" y="3" width="2" height="1"/><rect x="5" y="4" width="1" height="1"/><rect x="8" y="4" width="1" height="1"/>
+    <rect x="16" y="3" width="2" height="1"/><rect x="15" y="4" width="1" height="1"/><rect x="18" y="4" width="1" height="1"/></g></symbol>
+  <symbol id="clawd-party" viewBox="0 -4 24 21" shape-rendering="crispEdges"><use href="#c-body"/><use href="#c-up"/><use href="#c-blush"/>
+    <g fill="#2A1A12"><rect x="6" y="3" width="2" height="1"/><rect x="5" y="4" width="1" height="1"/><rect x="8" y="4" width="1" height="1"/>
+    <rect x="16" y="3" width="2" height="1"/><rect x="15" y="4" width="1" height="1"/><rect x="18" y="4" width="1" height="1"/>
+    <rect x="10" y="7" width="4" height="1"/><rect x="11" y="8" width="2" height="1"/></g></symbol>
+  <symbol id="clawd-sleep" viewBox="0 -4 24 21" shape-rendering="crispEdges"><use href="#c-body"/><use href="#c-arms"/>
+    <g fill="#2A1A12"><rect x="5" y="5" width="3" height="1"/><rect x="16" y="5" width="3" height="1"/></g>
+    <g fill="#8B6CFF"><rect x="19" y="-4" width="3" height="1"/><rect x="20" y="-3" width="1" height="1"/><rect x="19" y="-2" width="3" height="1"/></g></symbol>
+  <symbol id="clawd-worry" viewBox="0 -4 24 21" shape-rendering="crispEdges"><use href="#c-body"/><use href="#c-arms"/><use href="#c-drop"/>
+    <g fill="#2A1A12"><g class="blink"><rect x="6" y="4" width="2" height="3"/><rect x="16" y="4" width="2" height="3"/></g>
+    <rect x="5" y="2" width="2" height="1"/><rect x="17" y="2" width="2" height="1"/><rect x="10" y="9" width="4" height="1"/></g></symbol>
+  <symbol id="clawd-panic" viewBox="0 -4 24 21" shape-rendering="crispEdges"><use href="#c-body"/><use href="#c-up"/><use href="#c-drop"/>
+    <g fill="#2A1A12"><rect x="5" y="3" width="1" height="1"/><rect x="7" y="3" width="1" height="1"/><rect x="6" y="4" width="1" height="1"/><rect x="5" y="5" width="1" height="1"/><rect x="7" y="5" width="1" height="1"/>
+    <rect x="16" y="3" width="1" height="1"/><rect x="18" y="3" width="1" height="1"/><rect x="17" y="4" width="1" height="1"/><rect x="16" y="5" width="1" height="1"/><rect x="18" y="5" width="1" height="1"/>
+    <rect x="10" y="8" width="4" height="2"/></g></symbol>
+  <symbol id="coin" viewBox="0 0 8 8" shape-rendering="crispEdges">
+    <g fill="#FFC53D"><rect x="2" y="0" width="4" height="1"/><rect x="1" y="1" width="6" height="1"/><rect x="0" y="2" width="8" height="4"/><rect x="1" y="6" width="6" height="1"/><rect x="2" y="7" width="4" height="1"/></g>
+    <rect x="3" y="2" width="2" height="4" fill="#E09A00"/></symbol>
+</svg>
+
+<div id="splash" aria-hidden="true">
+  <svg class="splash-clawd" viewBox="0 -4 24 21"><use href="#clawd-happy"/></svg>
+  <b>Capit Duit</b>
+</div>
+
+<main id="app" hidden>
+  <section class="screen" id="s-beranda" aria-label="Beranda"></section>
+  <section class="screen" id="s-statistik" aria-label="Statistik" hidden></section>
+  <section class="screen" id="s-dompet" aria-label="Dompet" hidden></section>
+  <section class="screen" id="s-anggaran" aria-label="Anggaran" hidden></section>
+</main>
+
+<nav class="tabbar" id="tabbar" aria-label="Navigasi utama" hidden>
+  <button data-act="tab" data-v="beranda" aria-current="page">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 11 12 4l9 7v9a1 1 0 0 1-1 1h-5v-6h-6v6H4a1 1 0 0 1-1-1z"/></svg>Beranda</button>
+  <button data-act="tab" data-v="statistik">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 20V11h4v9zm6 0V4h4v16zm6 0v-6h4v6z"/></svg>Statistik</button>
+  <div class="fab-wrap"><button id="fab" class="fab" data-act="catat" aria-label="Catat transaksi"><span>+</span></button></div>
+  <button data-act="tab" data-v="dompet">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 7a2 2 0 0 1 2-2h13v3h1a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2zm13 6a1.5 1.5 0 1 0 3 0 1.5 1.5 0 0 0-3 0z"/></svg>Dompet</button>
+  <button data-act="tab" data-v="anggaran">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3a9 9 0 1 0 9 9h-9z"/><path d="M14 1.5V10h8.5A8.5 8.5 0 0 0 14 1.5z"/></svg>Anggaran</button>
+</nav>
+
+<div id="layers"></div>
+<div id="toast" role="status" aria-live="polite"></div>
+<div id="fx" aria-hidden="true"></div>
+<div id="kunci" hidden></div>
+<input type="month" id="bulan-input" class="sr-only" tabindex="-1" aria-hidden="true">
+<input type="file" id="impor-input" class="sr-only" accept="application/json,.json" tabindex="-1" aria-hidden="true">
+</body>
+</html>
